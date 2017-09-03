@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Netty权威指南.iml" filepath="$PROJECT_DIR$/Netty权威指南.iml" />
       <module fileurl="file://$PROJECT_DIR$/【第02章-NIO入门】【01-传统的BIO编程】/【第02章-NIO入门】【01-传统的BIO编程】.iml" filepath="$PROJECT_DIR$/【第02章-NIO入门】【01-传统的BIO编程】/【第02章-NIO入门】【01-传统的BIO编程】.iml" />
+      <module fileurl="file://$PROJECT_DIR$/【第02章-NIO入门】【02-伪异步IO编程】/【第02章-NIO入门】【02-伪异步IO编程】.iml" filepath="$PROJECT_DIR$/【第02章-NIO入门】【02-伪异步IO编程】/【第02章-NIO入门】【02-伪异步IO编程】.iml" />
     </modules>
   </component>
 </project>
