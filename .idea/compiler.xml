@@ -8,13 +8,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="Netty权威指南" />
         <module name="noi-basic" />
-        <module name="【第02-01章】【NIO入门】【传统的BIO编码】" />
+        <module name="【第02章-NIO入门】【01-传统的BIO编程】" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Netty权威指南" target="1.8" />
       <module name="noi-basic" target="1.8" />
-      <module name="【第02-01章】【NIO入门】【传统的BIO编码】" target="1.8" />
+      <module name="【第02章-NIO入门】【01-传统的BIO编程】" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
