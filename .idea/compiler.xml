@@ -10,6 +10,7 @@
         <module name="noi-basic" />
         <module name="【第02章-NIO入门】【01-传统的BIO编程】" />
         <module name="【第02章-NIO入门】【02-伪异步IO编程】" />
+        <module name="【第02章-NIO入门】【03-NOI编程】" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -17,6 +18,7 @@
       <module name="noi-basic" target="1.8" />
       <module name="【第02章-NIO入门】【01-传统的BIO编程】" target="1.8" />
       <module name="【第02章-NIO入门】【02-伪异步IO编程】" target="1.8" />
+      <module name="【第02章-NIO入门】【03-NOI编程】" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
