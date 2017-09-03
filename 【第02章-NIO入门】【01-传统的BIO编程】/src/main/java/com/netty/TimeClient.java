@@ -7,6 +7,8 @@ import java.io.PrintWriter;
 import java.net.Socket;
 
 /**
+ * 客户端通过Socket 创建，发送查询时间服务器的”QUERY TIME ORDER＂指令，然后
+ * 读取服务端的响应并将结果打印出来， 随后关闭连接，释放资源，程序退出执行。
  * Author: 王俊超
  * Date: 2017-08-27 22:00
  * All Rights Reserved !!!
@@ -34,7 +36,7 @@ public class TimeClient {
             out = new PrintWriter(socket.getOutputStream(), true);
 
             out.println("QUERY TIME ORDER");
-            System.out.println("Send order 2 server succeed.");
+            System.out.println("Send order to server succeed.");
 
             String resp = in.readLine();
             System.out.println("Now is : " + resp);
