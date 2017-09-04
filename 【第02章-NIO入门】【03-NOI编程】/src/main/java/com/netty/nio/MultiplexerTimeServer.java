@@ -31,6 +31,7 @@ public class MultiplexerTimeServer implements Runnable {
             System.out.println("The time server is start in port : " + port);
         } catch (IOException e) {
             e.printStackTrace();
+            // 如果资源初始化失败（ 例如端口被占用）， 则退出
             System.exit(1);
         }
     }
@@ -43,10 +44,13 @@ public class MultiplexerTimeServer implements Runnable {
     public void run() {
         while (!stop) {
             try {
+                // 休眠时间为1秒，无论是否有读写等事件发生，
+                // selector 每隔1秒都被唤醒一次。
                 selector.select(1000);
                 Set<SelectionKey> selectionKeys = selector.selectedKeys();
                 Iterator<SelectionKey> it = selectionKeys.iterator();
                 SelectionKey key = null;
+                // 循环遍历selector
                 while (it.hasNext()) {
                     key = it.next();
                     it.remove();
@@ -94,7 +98,9 @@ public class MultiplexerTimeServer implements Runnable {
                 SocketChannel sc = (SocketChannel) key.channel();
                 ByteBuffer readBuffer = ByteBuffer.allocate(1024);
                 int readBytes = sc.read(readBuffer);
-                if (readBytes > 0) {
+                if (readBytes > 0) { // 返回值大于0 ： 读到了字节，对字节进行编解码：
+                    // flip 操作，它的作用是将缓冲区当前的limit 设置为position,
+                    // position设置为0，用于后续对缓冲区的读取操作。
                     readBuffer.flip();
                     byte[] bytes = new byte[readBuffer.remaining()];
                     readBuffer.get(bytes);
@@ -104,7 +110,7 @@ public class MultiplexerTimeServer implements Runnable {
                             ? new java.util.Date(System.currentTimeMillis()).toString()
                             : "BAD ORDER";
                     doWrite(sc, currentTime);
-                } else if (readBytes < 0) {
+                } else if (readBytes < 0) { // 返回值为-l ：链路已经关闭， 需要关闭SocketChannel，将放资源。
                     // 关闭链路
                     key.cancel();
                     sc.close();
@@ -121,6 +127,11 @@ public class MultiplexerTimeServer implements Runnable {
             ByteBuffer writeBuffer = ByteBuffer.allocate(bytes.length);
             writeBuffer.put(bytes);
             writeBuffer.flip();
+            // 由于SocketChannel 是异步非阻塞的，
+            // 它并不保证一次能够把需要发迭的字节数组发送完，此时会出现“写半包”问题。我们需
+            // 要注册写操作，不断轮询Selector 将没有发送完的ByteBuffer 发送完毕，然后可以通过
+            // ByteBuffer 的hasRemain()方法判断消息是否发送完成。此处仅仅是个简单的入门组例程，
+            // 没有演示如何处理“写半包”场景，后续的章节会街详细说明。
             channel.write(writeBuffer);
         }
     }
