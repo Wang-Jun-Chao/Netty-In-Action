@@ -31,9 +31,15 @@ public class TimeClient {
 
     public void connect(int port, String host) throws InterruptedException {
         // 配置客户端NIO线程组
+        // 创建客户端处理IO读写的NioEventLoopGroup 线程组，然后继续创建客户端
+        // 辅助启动类Bootstrap ， 随后需要对其进行配置。
         EventLoopGroup group = new NioEventLoopGroup();
         try {
             Bootstrap b = new Bootstrap();
+            // Channel 需要设置为NioSocketChannel，然后为其添加Handler。此处
+            // 为了简单直接创建匿名内部类， 实现initChannel 方法，其作用是当创建NioSocketChannel
+            // 成功之后，在进行初始化时，将它的C hannelHa ndler 设置到ChannelPipeline 中，用于处理
+            // 网络IO事件。
             b.group(group).channel(NioSocketChannel.class)
                     .option(ChannelOption.TCP_NODELAY, true)
                     .handler(new ChannelInitializer<SocketChannel>() {
@@ -45,9 +51,10 @@ public class TimeClient {
                     });
 
             // 发起异步连接操作
+            // 调用conn ect 方法发起异步连接， 然后调用同步方法等待连接成功。
             ChannelFuture f = b.connect(host, port).sync();
 
-            // 当代客户端链路关闭
+            // 等待客户端链路关闭
             f.channel().closeFuture().sync();
         } finally {
             // 优雅退出，释放NIO线程组
