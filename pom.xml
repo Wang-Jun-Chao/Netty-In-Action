@@ -10,10 +10,16 @@
 
     <dependencyManagement>
         <dependencies>
+            <!--<dependency>-->
+            <!--<groupId>io.netty</groupId>-->
+            <!--<artifactId>netty-all</artifactId>-->
+            <!--<version>4.1.15.Final</version>-->
+            <!--</dependency>-->
+
             <dependency>
                 <groupId>io.netty</groupId>
                 <artifactId>netty-all</artifactId>
-                <version>4.1.15.Final</version>
+                <version>5.0.0.Alpha2</version>
             </dependency>
             <dependency>
                 <groupId>com.google.guava</groupId>
