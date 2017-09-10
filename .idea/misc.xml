@@ -10,6 +10,8 @@
         <option value="$PROJECT_DIR$/【第02章-NIO入门】【03-NOI编程】/pom.xml" />
         <option value="$PROJECT_DIR$/【第02章-NIO入门】【04-AOI编程】/pom.xml" />
         <option value="$PROJECT_DIR$/【第03章-Netty入门应用】【01-Netty入门开发】/pom.xml" />
+        <option value="$PROJECT_DIR$/【第04章-TCP粘包拆包问题的解决之道】【03-利用LineBasedFrameDecoder解决TCP粘包问题】/pom.xml" />
+        <option value="$PROJECT_DIR$/【第04章-TCP粘包拆包问题的解决之道】【02-未考虑TCP粘包导致功能异常案例】/pom.xml" />
       </list>
     </option>
   </component>
