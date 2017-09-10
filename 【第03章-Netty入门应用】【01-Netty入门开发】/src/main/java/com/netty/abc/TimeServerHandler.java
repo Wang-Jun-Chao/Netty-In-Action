@@ -20,8 +20,8 @@ public class TimeServerHandler extends ChannelHandlerAdapter {
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         // 类型转换，将msg 转换成Netty 的ByteBuf 对象。ByteBuf 类似于JDK 中的
         // java.nio.ByteBuffer 对象，不过它提供了更加强大和灵前的功能。通过ByteBuf 的
-        // readableBytes 方法可以获取缓冲区可读的字节数，根据可读的字节数创建byte 数组，通过’
-        // Byte Bu f 的read Bytes 方法将缓冲区中的字节数组复制到新建的byte 数组中，最后通过new
+        // readableBytes 方法可以获取缓冲区可读的字节数，根据可读的字节数创建byte 数组，通过
+        // ByteBuf 的readBytes 方法将缓冲区中的字节数组复制到新建的byte 数组中，最后通过new
         // String 构造函数获取请求消息。这时对请求消息进行判断， 如果是”QUERY TIME ORDER”
         // 则创建应答消息，通过ChannelHandlerContext 的write 方法异步发送应答消息给客户端。
         ByteBuf buf = (ByteBuf) msg;
