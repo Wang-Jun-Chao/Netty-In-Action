@@ -8,6 +8,8 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.LineBasedFrameDecoder;
+import io.netty.handler.codec.string.StringDecoder;
 
 /**
  * Author: 王俊超
@@ -46,6 +48,9 @@ public class TimeClient {
                         @Override
                         public void initChannel(SocketChannel ch)
                                 throws Exception {
+                            // 新增加了两个解码器
+                            ch.pipeline().addLast(new LineBasedFrameDecoder(1024));
+                            ch.pipeline().addLast(new StringDecoder());
                             ch.pipeline().addLast(new TimeClientHandler());
                         }
                     });
