@@ -15,6 +15,7 @@
         <module name="【第03章-Netty入门应用】【01-Netty入门开发】" />
         <module name="【第04章-TCP粘包拆包问题的解决之道】【02-未考虑TCP粘包导致功能异常案例】" />
         <module name="【第04章-TCP粘包拆包问题的解决之道】【03-利用LineBasedFrameDecoder解决TCP粘包问题】" />
+        <module name="【第05章-分隔符和定长解码器的应用】【01-DelimiterBasedFrameDecoder应用开发】" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -27,6 +28,7 @@
       <module name="【第03章-Netty入门应用】【01-Netty入门开发】" target="1.8" />
       <module name="【第04章-TCP粘包拆包问题的解决之道】【02-未考虑TCP粘包导致功能异常案例】" target="1.8" />
       <module name="【第04章-TCP粘包拆包问题的解决之道】【03-利用LineBasedFrameDecoder解决TCP粘包问题】" target="1.8" />
+      <module name="【第05章-分隔符和定长解码器的应用】【01-DelimiterBasedFrameDecoder应用开发】" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

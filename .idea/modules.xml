@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/【第03章-Netty入门应用】【01-Netty入门开发】/【第03章-Netty入门应用】【01-Netty入门开发】.iml" filepath="$PROJECT_DIR$/【第03章-Netty入门应用】【01-Netty入门开发】/【第03章-Netty入门应用】【01-Netty入门开发】.iml" />
       <module fileurl="file://$PROJECT_DIR$/【第04章-TCP粘包拆包问题的解决之道】【02-未考虑TCP粘包导致功能异常案例】/【第04章-TCP粘包拆包问题的解决之道】【02-未考虑TCP粘包导致功能异常案例】.iml" filepath="$PROJECT_DIR$/【第04章-TCP粘包拆包问题的解决之道】【02-未考虑TCP粘包导致功能异常案例】/【第04章-TCP粘包拆包问题的解决之道】【02-未考虑TCP粘包导致功能异常案例】.iml" />
       <module fileurl="file://$PROJECT_DIR$/【第04章-TCP粘包拆包问题的解决之道】【03-利用LineBasedFrameDecoder解决TCP粘包问题】/【第04章-TCP粘包拆包问题的解决之道】【03-利用LineBasedFrameDecoder解决TCP粘包问题】.iml" filepath="$PROJECT_DIR$/【第04章-TCP粘包拆包问题的解决之道】【03-利用LineBasedFrameDecoder解决TCP粘包问题】/【第04章-TCP粘包拆包问题的解决之道】【03-利用LineBasedFrameDecoder解决TCP粘包问题】.iml" />
+      <module fileurl="file://$PROJECT_DIR$/【第05章-分隔符和定长解码器的应用】【01-DelimiterBasedFrameDecoder应用开发】/【第05章-分隔符和定长解码器的应用】【01-DelimiterBasedFrameDecoder应用开发】.iml" filepath="$PROJECT_DIR$/【第05章-分隔符和定长解码器的应用】【01-DelimiterBasedFrameDecoder应用开发】/【第05章-分隔符和定长解码器的应用】【01-DelimiterBasedFrameDecoder应用开发】.iml" />
     </modules>
   </component>
 </project>
