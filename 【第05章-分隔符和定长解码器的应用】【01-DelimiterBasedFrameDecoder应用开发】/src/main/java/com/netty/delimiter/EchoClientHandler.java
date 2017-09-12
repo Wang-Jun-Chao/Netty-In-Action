@@ -20,6 +20,7 @@ public class EchoClientHandler extends ChannelHandlerAdapter {
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) {
+        // 在TCP 链路建立成功之后循环发送请求消息给服务端
         for (int i = 0; i < 10; i++) {
             ctx.writeAndFlush(Unpooled.copiedBuffer(ECHO_REQ.getBytes()));
         }
@@ -28,6 +29,7 @@ public class EchoClientHandler extends ChannelHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg)
             throws Exception {
+        // 打印接收到的服务端应答消息同时进行计数。
         System.out.println("This is " + (++counter) + " times receive server : [" + msg + "]");
     }
 

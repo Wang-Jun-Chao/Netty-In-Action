@@ -47,6 +47,11 @@ public class EchoServer {
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         public void initChannel(SocketChannel ch) throws Exception {
+                            // 在服务端的ChannelPipeline 中新刑FixedLengthFrameDecoder，长度设置为20 ，
+                            // 然后再依次用加字符串解码器和EchoServerHandler。
+                            // 利用FixedLengthFrameDecoder解码器，无论次接收到多少数据报，它都会按照构
+                            // 造函数巾设置的固定长度进行解码，如果是半包消息， FixedLengthFrameDecoder
+                            // 会续存半包消息并等待下个包到达后进行拼包，直到读取到－个完整的包
                             ch.pipeline().addLast(new FixedLengthFrameDecoder(20));
                             ch.pipeline().addLast(new StringDecoder());
                             ch.pipeline().addLast(new EchoServerHandler());
