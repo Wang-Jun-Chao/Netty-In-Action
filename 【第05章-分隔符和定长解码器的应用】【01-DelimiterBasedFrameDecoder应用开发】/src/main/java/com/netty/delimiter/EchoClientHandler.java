@@ -12,7 +12,7 @@ import io.netty.channel.ChannelHandlerContext;
  * All Rights Reserved !!!
  */
 public class EchoClientHandler extends ChannelHandlerAdapter {
-    static final String ECHO_REQ = "Hi, Wang Junchao. Welcome to Netty.$_";
+    private static final String ECHO_REQ = "Hi, Wang Junchao. Welcome to Netty.$_";
     private int counter;
 
     public EchoClientHandler() {
@@ -20,8 +20,6 @@ public class EchoClientHandler extends ChannelHandlerAdapter {
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) {
-        // ByteBuf buf = UnpooledByteBufAllocator.DEFAULT.buffer(ECHO_REQ.getBytes().length);
-        // buf.writeBytes(ECHO_REQ.getBytes());
         for (int i = 0; i < 10; i++) {
             ctx.writeAndFlush(Unpooled.copiedBuffer(ECHO_REQ.getBytes()));
         }
