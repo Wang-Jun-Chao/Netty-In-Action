@@ -14,6 +14,7 @@
         <option value="$PROJECT_DIR$/【第04章-TCP粘包拆包问题的解决之道】【02-未考虑TCP粘包导致功能异常案例】/pom.xml" />
         <option value="$PROJECT_DIR$/【第05章-分隔符和定长解码器的应用】【01-DelimiterBasedFrameDecoder应用开发】/pom.xml" />
         <option value="$PROJECT_DIR$/【第05章-分隔符和定长解码器的应用】【02-FixedlengthFrameDecoder应用开发】/pom.xml" />
+        <option value="$PROJECT_DIR$/【第06章-编解码技术】【01-Java序列化的缺点】/pom.xml" />
       </list>
     </option>
   </component>

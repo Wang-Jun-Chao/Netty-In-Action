@@ -17,6 +17,7 @@
         <module name="【第04章-TCP粘包拆包问题的解决之道】【03-利用LineBasedFrameDecoder解决TCP粘包问题】" />
         <module name="【第05章-分隔符和定长解码器的应用】【01-DelimiterBasedFrameDecoder应用开发】" />
         <module name="【第05章-分隔符和定长解码器的应用】【02-FixedlengthFrameDecoder应用开发】" />
+        <module name="【第06章-编解码技术】【01-Java序列化的缺点】" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -31,6 +32,7 @@
       <module name="【第04章-TCP粘包拆包问题的解决之道】【03-利用LineBasedFrameDecoder解决TCP粘包问题】" target="1.8" />
       <module name="【第05章-分隔符和定长解码器的应用】【01-DelimiterBasedFrameDecoder应用开发】" target="1.8" />
       <module name="【第05章-分隔符和定长解码器的应用】【02-FixedlengthFrameDecoder应用开发】" target="1.8" />
+      <module name="【第06章-编解码技术】【01-Java序列化的缺点】" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
