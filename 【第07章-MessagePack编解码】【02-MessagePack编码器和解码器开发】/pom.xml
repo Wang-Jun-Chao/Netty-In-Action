@@ -21,7 +21,7 @@
         </dependency>
         <dependency>
             <groupId>org.msgpack</groupId>
-            <artifactId>msgpack-core</artifactId>
+            <artifactId>msgpack</artifactId>
         </dependency>
     </dependencies>
 
