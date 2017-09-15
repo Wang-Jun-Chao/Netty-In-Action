@@ -14,9 +14,9 @@ public class EchoServerHandler extends ChannelHandlerAdapter {
     private int counter = 0;
 
     @Override
-    public void channelRead(ChannelHandlerContext ctx, Object msg)
-            throws Exception {
+    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         System.out.println("Server receive the msgpack message :" + msg);
+        ctx.writeAndFlush(msg);
     }
 
     @Override
