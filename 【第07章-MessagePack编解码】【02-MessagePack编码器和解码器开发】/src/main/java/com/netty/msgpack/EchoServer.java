@@ -1,8 +1,6 @@
 package com.netty.msgpack;
 
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
@@ -10,8 +8,6 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import io.netty.handler.codec.DelimiterBasedFrameDecoder;
-import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 
@@ -48,11 +44,8 @@ public class EchoServer {
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         public void initChannel(SocketChannel ch) throws Exception {
-                            // 分别将DelimiterBasedFrameDecoder 和StringDecoder 添加到客户端
-                            // ChannelPipeline 中，最后添加客户端IO事件处理类EchoClientHandler ，
-                            ByteBuf delimiter = Unpooled.copiedBuffer("$_".getBytes());
-                            ch.pipeline().addLast(new DelimiterBasedFrameDecoder(1024, delimiter));
-                            ch.pipeline().addLast(new StringDecoder());
+                            ch.pipeline().addLast("msgpack decoder", new MsgPackDecoder());
+                            ch.pipeline().addLast("msgpack encoder", new MsgPackEncoder());
                             ch.pipeline().addLast(new EchoServerHandler());
                         }
                     });
