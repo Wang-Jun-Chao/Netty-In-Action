@@ -33,6 +33,7 @@ public class EchoClientHandler extends ChannelHandlerAdapter {
     }
 
     private UserInfo[] toUserInfo() {
+        System.out.println(">>>>>>>>>>>>>>");
         UserInfo[] userInfos = new UserInfo[sendNumber];
         UserInfo userInfo;
         for (int i = 0; i < sendNumber; i++) {
@@ -42,7 +43,7 @@ public class EchoClientHandler extends ChannelHandlerAdapter {
             userInfo.setUserName("ABCDEFG ---> " + i);
             userInfos[i] = userInfo;
         }
-
+        System.out.println("<<<<<<<<<<<<<<");
         return userInfos;
     }
 

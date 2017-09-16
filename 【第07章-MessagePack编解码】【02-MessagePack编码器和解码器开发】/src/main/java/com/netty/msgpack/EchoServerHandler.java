@@ -11,7 +11,6 @@ import io.netty.channel.ChannelHandlerContext;
  * All Rights Reserved !!!
  */
 public class EchoServerHandler extends ChannelHandlerAdapter {
-    private int counter = 0;
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
