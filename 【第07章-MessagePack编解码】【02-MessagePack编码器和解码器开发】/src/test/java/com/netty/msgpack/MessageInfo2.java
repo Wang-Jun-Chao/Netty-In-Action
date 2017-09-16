@@ -2,8 +2,6 @@ package com.netty.msgpack;
 
 import com.google.gson.Gson;
 
-import java.io.Serializable;
-
 /**
  * Author: 王俊超
  * Date: 2017-09-13 07:49
@@ -11,8 +9,7 @@ import java.io.Serializable;
  * Github: https://github.com/Wang-Jun-Chao
  * All Rights Reserved !!!
  */
-public class MessageInfo2 implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class MessageInfo2 {
     private int id;
     private String name;
     private double version;

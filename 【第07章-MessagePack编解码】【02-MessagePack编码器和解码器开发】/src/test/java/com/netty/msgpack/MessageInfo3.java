@@ -4,8 +4,6 @@ import com.google.gson.Gson;
 import org.msgpack.annotation.Message;
 import org.msgpack.annotation.Optional;
 
-import java.io.Serializable;
-
 /**
  * 序列化的类要使用注解@Message
  * <p>
@@ -16,13 +14,13 @@ import java.io.Serializable;
  * All Rights Reserved !!!
  */
 @Message
-public class MessageInfo3 implements Serializable {
-    private static final long serialVersionUID = 1L;
-    @Optional
-    public int flag = 0;
+public class MessageInfo3 {
     private int id;
     private String name;
     private double version;
+
+    @Optional
+    public int flag = 0;
 
     public MessageInfo3() {
     }

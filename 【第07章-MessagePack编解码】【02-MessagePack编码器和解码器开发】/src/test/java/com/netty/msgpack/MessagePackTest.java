@@ -293,6 +293,14 @@ public class MessagePackTest {
      */
     @Test
     public void testMessagePack_withOptional() throws Exception {
-
+        MessageInfo3 src = new MessageInfo3(1, "message", 1.1, 2);
+        LOGGER.info(src.toString());
+        MessagePack msgpack = new MessagePack();
+        // 序列化
+        byte[] bytes = msgpack.write(src);
+        // 反序列化
+        // 使用原有的版本反序列化，会忽略optional注解的字段
+        MessageInfo dst = msgpack.read(bytes, MessageInfo.class);
+        LOGGER.info(dst.toString());
     }
 }

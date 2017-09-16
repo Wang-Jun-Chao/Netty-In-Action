@@ -3,8 +3,6 @@ package com.netty.msgpack;
 import com.google.gson.Gson;
 import org.msgpack.annotation.Message;
 
-import java.io.Serializable;
-
 /**
  * 序列化的类要使用注解@Message
  * <p>
@@ -15,8 +13,7 @@ import java.io.Serializable;
  * All Rights Reserved !!!
  */
 @Message
-public class MessageInfo implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class MessageInfo {
     private int id;
     private String name;
     private double version;
