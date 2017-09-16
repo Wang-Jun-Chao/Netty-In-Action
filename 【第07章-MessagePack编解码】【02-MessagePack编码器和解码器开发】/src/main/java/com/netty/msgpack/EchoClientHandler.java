@@ -11,9 +11,7 @@ import io.netty.channel.ChannelHandlerContext;
  * All Rights Reserved !!!
  */
 public class EchoClientHandler extends ChannelHandlerAdapter {
-    private static final String ECHO_REQ = "Hi, Wang Junchao. Welcome to Netty.$_";
     private final int sendNumber;
-    private int counter;
 
     public EchoClientHandler() {
         this(0);
@@ -33,7 +31,6 @@ public class EchoClientHandler extends ChannelHandlerAdapter {
     }
 
     private UserInfo[] toUserInfo() {
-        System.out.println(">>>>>>>>>>>>>>");
         UserInfo[] userInfos = new UserInfo[sendNumber];
         UserInfo userInfo;
         for (int i = 0; i < sendNumber; i++) {
@@ -43,14 +40,13 @@ public class EchoClientHandler extends ChannelHandlerAdapter {
             userInfo.setUserName("ABCDEFG ---> " + i);
             userInfos[i] = userInfo;
         }
-        System.out.println("<<<<<<<<<<<<<<");
         return userInfos;
     }
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         System.out.println("Client receive the msgpack message :" + msg);
-        ctx.write(msg);
+//        ctx.write(msg);
     }
 
     @Override

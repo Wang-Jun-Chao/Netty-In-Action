@@ -1,5 +1,7 @@
 package com.netty.msgpack;
 
+import org.msgpack.annotation.Message;
+
 import java.io.Serializable;
 
 /**
@@ -9,6 +11,7 @@ import java.io.Serializable;
  * Github: https://github.com/Wang-Jun-Chao
  * All Rights Reserved !!!
  */
+@Message
 public class UserInfo implements Serializable {
     private static final long serialVersionUID = 1L;
     private String userName;
@@ -25,6 +28,10 @@ public class UserInfo implements Serializable {
         return this;
     }
 
+    public UserInfo buildAge(int age) {
+        this.userId = age;
+        return this;
+    }
     public String getUserName() {
         return userName;
     }
@@ -50,9 +57,10 @@ public class UserInfo implements Serializable {
         this.age = age;
     }
 
+
     @Override
     public String toString() {
-        return "{\"userName\":\"" + userName + "\", \"userId\":" + userId + ", \"age=\":" + age +
+        return "{\"userName\":\"" + userName + "\", \"userId\":" + userId + ", \"age:\":" + age +
                 '}';
     }
 }

@@ -2,6 +2,7 @@ package com.netty.msgpack;
 
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
+import org.msgpack.type.Value;
 
 /**
  * Author: 王俊超
@@ -14,6 +15,9 @@ public class EchoServerHandler extends ChannelHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+        System.out.println(msg.getClass());
+        Value value = (Value) msg;
+        System.out.println(value.getType());
         System.out.println("Server receive the msgpack message :" + msg);
         ctx.writeAndFlush(msg);
     }

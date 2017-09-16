@@ -1,4 +1,4 @@
-package com.netty.msgpack;
+package com.netty.msgpack.time;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
@@ -7,19 +7,20 @@ import org.msgpack.MessagePack;
 
 /**
  * Author: 王俊超
- * Date: 2017-09-15 08:05
+ * Date: 2017-09-16 08:38
  * Blog: http://blog.csdn.net/derrantcm
- * Github: https://github.com/Wang-Jun-Chao
+ * Github: https://github.com/wang-jun-chao
  * All Rights Reserved !!!
  */
-public class MsgPackEncoder extends MessageToByteEncoder<Object> {
+public class MsgPackEncode extends MessageToByteEncoder<Object> {
+
+
     @Override
     protected void encode(ChannelHandlerContext ctx, Object msg, ByteBuf out) throws Exception {
-
-        System.out.println("MsgPackEncoder : " + msg.getClass() + ", " + msg);
         MessagePack msgPack = new MessagePack();
-
-        byte[] raw = msgPack.write(msg);
+        System.out.println(msg.getClass());
+        byte[] raw = null;
+        raw = msgPack.write(msg);
         out.writeBytes(raw);
     }
 }
