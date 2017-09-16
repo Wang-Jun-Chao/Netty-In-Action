@@ -334,8 +334,9 @@ public class MessagePackTest {
 
         // 反序列化，然后进行类型转换
         Value dynamic = msgpack.read(raw);
-        dynamic.isArrayValue();
-
+        // TODO 如何确定的？
+        LOGGER.info(dynamic.isArrayValue() + "");
+        LOGGER.info(dynamic.asArrayValue().get(0).getClass() + "");
         List<String> dst2 = new Converter(dynamic).read(Templates.tList(Templates.TString));
         s1 = new Gson().toJson(src);
         s2 = new Gson().toJson(dst2);
