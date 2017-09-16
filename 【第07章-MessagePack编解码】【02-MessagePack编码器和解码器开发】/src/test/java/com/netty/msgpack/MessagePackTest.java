@@ -285,4 +285,14 @@ public class MessagePackTest {
         LOGGER.info(dst.toString());
         JSONAssert.assertEquals(src.toString(), dst.toString(), false);
     }
+
+    /**
+     * 使用@Optional注解标注新添加的字段
+     *
+     * @throws Exception
+     */
+    @Test
+    public void testMessagePack_withOptional() throws Exception {
+
+    }
 }
