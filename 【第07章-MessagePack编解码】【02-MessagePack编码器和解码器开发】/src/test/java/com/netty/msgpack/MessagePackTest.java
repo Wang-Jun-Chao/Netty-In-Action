@@ -8,6 +8,8 @@ import org.msgpack.MessageTypeException;
 import org.msgpack.packer.Packer;
 import org.msgpack.template.Template;
 import org.msgpack.template.Templates;
+import org.msgpack.type.Value;
+import org.msgpack.unpacker.Converter;
 import org.msgpack.unpacker.Unpacker;
 import org.skyscreamer.jsonassert.JSONAssert;
 import org.slf4j.Logger;
@@ -302,5 +304,43 @@ public class MessagePackTest {
         // 使用原有的版本反序列化，会忽略optional注解的字段
         MessageInfo dst = msgpack.read(bytes, MessageInfo.class);
         LOGGER.info(dst.toString());
+    }
+
+    /**
+     * 动态的确定序列化的类型，主要是使用类库提供的Value对象
+     *
+     * @throws Exception
+     */
+    @Test
+    public void testMessagePack_dynamic() throws Exception {
+        // 创建序列化对象
+        List<String> src = new ArrayList<String>();
+        src.add("msgpack");
+        src.add("kumofs");
+        src.add("viver");
+
+        MessagePack msgpack = new MessagePack();
+        // 序列化
+        byte[] raw = msgpack.write(src);
+
+        // 直接使用模板序列化
+        List<String> dst1 = msgpack.read(raw, Templates.tList(Templates.TString));
+        String s1 = new Gson().toJson(src);
+        String s2 = new Gson().toJson(dst1);
+        LOGGER.info(s1);
+        LOGGER.info(s2);
+        JSONAssert.assertEquals(s1, s2, false);
+
+
+        // 反序列化，然后进行类型转换
+        Value dynamic = msgpack.read(raw);
+        dynamic.isArrayValue();
+
+        List<String> dst2 = new Converter(dynamic).read(Templates.tList(Templates.TString));
+        s1 = new Gson().toJson(src);
+        s2 = new Gson().toJson(dst2);
+        LOGGER.info(s1);
+        LOGGER.info(s2);
+        JSONAssert.assertEquals(s1, s2, false);
     }
 }
