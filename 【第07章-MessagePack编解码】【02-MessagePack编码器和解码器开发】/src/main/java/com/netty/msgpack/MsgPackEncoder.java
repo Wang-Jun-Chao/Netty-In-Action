@@ -15,10 +15,7 @@ import org.msgpack.MessagePack;
 public class MsgPackEncoder extends MessageToByteEncoder<Object> {
     @Override
     protected void encode(ChannelHandlerContext ctx, Object msg, ByteBuf out) throws Exception {
-
-        System.out.println("MsgPackEncoder : " + msg.getClass() + ", " + msg);
         MessagePack msgPack = new MessagePack();
-
         byte[] raw = msgPack.write(msg);
         out.writeBytes(raw);
     }

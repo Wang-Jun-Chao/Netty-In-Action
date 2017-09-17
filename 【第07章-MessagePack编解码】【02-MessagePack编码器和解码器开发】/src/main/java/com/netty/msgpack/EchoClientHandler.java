@@ -46,7 +46,7 @@ public class EchoClientHandler extends ChannelHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         System.out.println("Client receive the msgpack message :" + msg);
-//        ctx.write(msg);
+        ctx.write(msg);
     }
 
     @Override

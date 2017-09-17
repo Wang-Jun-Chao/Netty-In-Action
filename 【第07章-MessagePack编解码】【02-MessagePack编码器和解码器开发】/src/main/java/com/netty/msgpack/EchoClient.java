@@ -38,7 +38,7 @@ public class EchoClient {
                 // 采用默认值
             }
         }
-        new EchoClient("127.0.0.1", port, 10).run();
+        new EchoClient("127.0.0.1", port, 10000).run();
     }
 
     public void run() throws InterruptedException {
@@ -55,7 +55,7 @@ public class EchoClient {
             b.group(group).channel(NioSocketChannel.class)
                     .option(ChannelOption.TCP_NODELAY, true)
                     .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 3000)
-                    .handler(new LoggingHandler(LogLevel.DEBUG))
+                    .handler(new LoggingHandler(LogLevel.INFO))
                     .handler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         public void initChannel(SocketChannel ch)
