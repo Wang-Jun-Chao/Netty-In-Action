@@ -19,6 +19,7 @@
         <module name="【第05章-分隔符和定长解码器的应用】【02-FixedlengthFrameDecoder应用开发】" />
         <module name="【第06章-编解码技术】【01-Java序列化的缺点】" />
         <module name="【第07章-MessagePack编解码】【02-MessagePack编码器和解码器开发】" />
+        <module name="【第07章-MessagePack编解码】【03-MessagePack粘包半包支持】" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -35,6 +36,7 @@
       <module name="【第05章-分隔符和定长解码器的应用】【02-FixedlengthFrameDecoder应用开发】" target="1.8" />
       <module name="【第06章-编解码技术】【01-Java序列化的缺点】" target="1.8" />
       <module name="【第07章-MessagePack编解码】【02-MessagePack编码器和解码器开发】" target="1.8" />
+      <module name="【第07章-MessagePack编解码】【03-MessagePack粘包半包支持】" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
