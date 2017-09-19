@@ -8,4 +8,5 @@ package com.netty.protobuf;
  * All Rights Reserved !!!
  */
 public class TestSubscribeReqProto {
+//    private static byte[] encode(SubscribeReq);
 }

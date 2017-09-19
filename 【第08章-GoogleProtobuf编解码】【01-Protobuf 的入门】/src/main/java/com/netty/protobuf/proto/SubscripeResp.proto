@@ -1,0 +1,10 @@
+package com.netty.protobuf.proto;
+
+option java_package = "com.netty.protobuf.proto";
+option java_outer_classname = "SubscribeRespProto";
+
+message SubscribeReq {
+    required int32 subReqId = 1;
+    required int32 respCode = 2;
+    required string desc = 3;
+}
