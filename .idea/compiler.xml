@@ -6,7 +6,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Netty权威指南" />
         <module name="noi-basic" />
         <module name="【第02章-NIO入门】【01-传统的BIO编程】" />
         <module name="【第02章-NIO入门】【02-伪异步IO编程】" />
@@ -20,6 +19,7 @@
         <module name="【第06章-编解码技术】【01-Java序列化的缺点】" />
         <module name="【第07章-MessagePack编解码】【02-MessagePack编码器和解码器开发】" />
         <module name="【第07章-MessagePack编解码】【03-MessagePack粘包半包支持】" />
+        <module name="【第08章-GoogleProtobuf编解码】【01-Protobuf 的入门】" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -37,6 +37,7 @@
       <module name="【第06章-编解码技术】【01-Java序列化的缺点】" target="1.8" />
       <module name="【第07章-MessagePack编解码】【02-MessagePack编码器和解码器开发】" target="1.8" />
       <module name="【第07章-MessagePack编解码】【03-MessagePack粘包半包支持】" target="1.8" />
+      <module name="【第08章-GoogleProtobuf编解码】【01-Protobuf 的入门】" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
