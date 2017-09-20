@@ -16,7 +16,7 @@ public class SubscribeReq implements Serializable {
      */
     private static final long serialVersionUID = 1L;
 
-    private int subReqID;
+    private int subReqId;
 
     private String userName;
 
@@ -26,50 +26,54 @@ public class SubscribeReq implements Serializable {
 
     private String address;
 
-    public final int getSubReqID() {
-        return subReqID;
+    public int getSubReqId() {
+        return subReqId;
     }
 
-    public final void setSubReqID(int subReqID) {
-        this.subReqID = subReqID;
+    public void setSubReqId(int subReqId) {
+        this.subReqId = subReqId;
     }
 
-    public final String getUserName() {
+    public String getUserName() {
         return userName;
     }
 
-    public final void setUserName(String userName) {
+    public void setUserName(String userName) {
         this.userName = userName;
     }
 
-    public final String getProductName() {
+    public String getProductName() {
         return productName;
     }
 
-    public final void setProductName(String productName) {
+    public void setProductName(String productName) {
         this.productName = productName;
     }
 
-    public final String getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public final void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-    public final String getAddress() {
+    public String getAddress() {
         return address;
     }
 
-    public final void setAddress(String address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 
     @Override
     public String toString() {
-        return "SubscribeReq [subReqID=" + subReqID + ", userName=" + userName
-                + ", productName=" + productName + ", phoneNumber="
-                + phoneNumber + ", address=" + address + "]";
+        return "SubscribeReq{" +
+                "subReqId=" + subReqId +
+                ", userName='" + userName + '\'' +
+                ", productName='" + productName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", address='" + address + '\'' +
+                '}';
     }
 }

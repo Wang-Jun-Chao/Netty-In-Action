@@ -16,39 +16,42 @@ public class SubscribeResp implements Serializable {
      */
     private static final long serialVersionUID = 1L;
 
-    private int subReqID;
+    private int subReqId;
 
     private int respCode;
 
     private String desc;
 
-    public final int getSubReqID() {
-        return subReqID;
+    public int getSubReqId() {
+        return subReqId;
     }
 
-    public final void setSubReqID(int subReqID) {
-        this.subReqID = subReqID;
+    public void setSubReqId(int subReqId) {
+        this.subReqId = subReqId;
     }
 
-    public final int getRespCode() {
+    public int getRespCode() {
         return respCode;
     }
 
-    public final void setRespCode(int respCode) {
+    public void setRespCode(int respCode) {
         this.respCode = respCode;
     }
 
-    public final String getDesc() {
+    public String getDesc() {
         return desc;
     }
 
-    public final void setDesc(String desc) {
+    public void setDesc(String desc) {
         this.desc = desc;
     }
 
     @Override
     public String toString() {
-        return "SubscribeResp [subReqID=" + subReqID + ", respCode=" + respCode
-                + ", desc=" + desc + "]";
+        return "SubscribeResp{" +
+                "subReqId=" + subReqId +
+                ", respCode=" + respCode +
+                ", desc='" + desc + '\'' +
+                '}';
     }
 }
