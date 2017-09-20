@@ -11,12 +11,31 @@ import com.netty.protobuf.proto.SubscribeReqProto;
  * All Rights Reserved !!!
  */
 public class TestSubscribeReqProto {
-    private static byte[] encode(SubscribeReqProto.SubscribeReq req){
+    private static byte[] encode(SubscribeReqProto.SubscribeReq req) {
         return req.toByteArray();
     }
 
     private static SubscribeReqProto.SubscribeReq decode(byte[] body)
             throws InvalidProtocolBufferException {
         return SubscribeReqProto.SubscribeReq.parseFrom(body);
+    }
+
+    private static SubscribeReqProto.SubscribeReq createSubscribeReq() {
+        SubscribeReqProto.SubscribeReq.Builder builder = SubscribeReqProto.SubscribeReq.newBuilder();
+        builder.setSubReqId(1);
+        builder.setUserName("Wangjunchao");
+        builder.setProductName("Netty");
+        builder.setAddress("Shenzhen");
+
+        return builder.build();
+    }
+
+    public static void main(String[] args) throws InvalidProtocolBufferException {
+        SubscribeReqProto.SubscribeReq req = createSubscribeReq();
+        System.out.println("Before encode : \n" + req.toString());
+        SubscribeReqProto.SubscribeReq req2 = decode(encode(req));
+        System.out.println("After decode : \n" + req.toString());
+        System.out.println("Assert equal : --> " + req2.equals(req));
+
     }
 }
