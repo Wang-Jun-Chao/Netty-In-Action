@@ -17,7 +17,8 @@
         <option value="$PROJECT_DIR$/【第06章-编解码技术】【01-Java序列化的缺点】/pom.xml" />
         <option value="$PROJECT_DIR$/【第07章-MessagePack编解码】【02-MessagePack编码器和解码器开发】/pom.xml" />
         <option value="$PROJECT_DIR$/【第07章-MessagePack编解码】【03-MessagePack粘包半包支持】/pom.xml" />
-        <option value="$PROJECT_DIR$/【第08章-GoogleProtobuf编解码】【01-Protobuf 的入门】/pom.xml" />
+        <option value="$PROJECT_DIR$/【第08章-GoogleProtobuf编解码】【01-Protobuf的入门】/pom.xml" />
+        <option value="$PROJECT_DIR$/【第08章-GoogleProtobuf编解码】【02-Netty的Protobuf服务端开发】/pom.xml" />
       </list>
     </option>
   </component>

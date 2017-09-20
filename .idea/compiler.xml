@@ -20,6 +20,8 @@
         <module name="【第07章-MessagePack编解码】【02-MessagePack编码器和解码器开发】" />
         <module name="【第07章-MessagePack编解码】【03-MessagePack粘包半包支持】" />
         <module name="【第08章-GoogleProtobuf编解码】【01-Protobuf 的入门】" />
+        <module name="【第08章-GoogleProtobuf编解码】【01-Protobuf的入门】" />
+        <module name="【第08章-GoogleProtobuf编解码】【02-Netty的Protobuf服务端开发】" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -37,7 +39,8 @@
       <module name="【第06章-编解码技术】【01-Java序列化的缺点】" target="1.8" />
       <module name="【第07章-MessagePack编解码】【02-MessagePack编码器和解码器开发】" target="1.8" />
       <module name="【第07章-MessagePack编解码】【03-MessagePack粘包半包支持】" target="1.8" />
-      <module name="【第08章-GoogleProtobuf编解码】【01-Protobuf 的入门】" target="1.8" />
+      <module name="【第08章-GoogleProtobuf编解码】【01-Protobuf的入门】" target="1.8" />
+      <module name="【第08章-GoogleProtobuf编解码】【02-Netty的Protobuf服务端开发】" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

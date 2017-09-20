@@ -25,7 +25,9 @@ public class TestSubscribeReqProto {
         builder.setSubReqId(1);
         builder.setUserName("Wangjunchao");
         builder.setProductName("Netty");
-        builder.setAddress("Shenzhen");
+        builder.addAddress("NanJing YuHuaTai");
+        builder.addAddress("BeiJing LiuLiChang");
+        builder.addAddress("ShenZhen HongShuLin");
 
         return builder.build();
     }
