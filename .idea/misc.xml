@@ -19,6 +19,7 @@
         <option value="$PROJECT_DIR$/【第07章-MessagePack编解码】【03-MessagePack粘包半包支持】/pom.xml" />
         <option value="$PROJECT_DIR$/【第08章-GoogleProtobuf编解码】【01-Protobuf的入门】/pom.xml" />
         <option value="$PROJECT_DIR$/【第08章-GoogleProtobuf编解码】【02-Netty的Protobuf服务端开发】/pom.xml" />
+        <option value="$PROJECT_DIR$/【第09章-JBossMarshalling编解码】【01-JBossMarshalling编解码】/pom.xml" />
       </list>
     </option>
   </component>

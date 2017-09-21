@@ -11,6 +11,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.4.0" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.marshalling:jboss-marshalling:2.0.1.Final" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.jboss.marshalling:jboss-marshalling-serial:2.0.1.Final" level="project" />
   </component>
 </module>
