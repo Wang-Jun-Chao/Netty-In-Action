@@ -32,7 +32,10 @@ public class SubReqServer {
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         public void initChannel(SocketChannel ch) {
+                            // 通过MarshallingCodeCFactory工厂类创建了MarshallingDecoder 解码器，
+                            // 并将其加入到ChannelPipeline
                             ch.pipeline().addLast(MarshallingCodeCFactory.buildMarshallingDecoder());
+                            // 通过工厂类创建MarshallingEncoder 编码器， 并添加到ChannelPipeline 中
                             ch.pipeline().addLast(MarshallingCodeCFactory.buildMarshallingEncoder());
                             ch.pipeline().addLast(new SubReqServerHandler());
                         }
