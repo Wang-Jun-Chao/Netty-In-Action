@@ -12,7 +12,7 @@ import org.jboss.marshalling.MarshallingConfiguration;
  * Github: https://github.com/wang-jun-chao
  * All Rights Reserved !!!
  */
-public class MarshallingCodeCFactory {
+public final class MarshallingCodeCFactory {
     /**
      * 创建Jboss Marshalling解码器MarshallingDecoder
      *

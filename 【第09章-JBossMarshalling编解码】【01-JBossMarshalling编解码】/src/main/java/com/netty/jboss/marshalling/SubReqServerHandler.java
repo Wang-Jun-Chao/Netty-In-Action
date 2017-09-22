@@ -1,5 +1,6 @@
 package com.netty.jboss.marshalling;
 
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
 
@@ -10,6 +11,7 @@ import io.netty.channel.ChannelHandlerContext;
  * Github: https://github.com/wang-jun-chao
  * All Rights Reserved !!!
  */
+@ChannelHandler.Sharable
 public class SubReqServerHandler extends ChannelHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
