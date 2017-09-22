@@ -26,7 +26,7 @@ public class SubReqClientHandler extends ChannelHandlerAdapter {
     private SubscribeReq subReq(int i) {
         SubscribeReq req = new SubscribeReq();
         req.setAddress("NanJing YuHuaTai");
-        req.setPhoneNumber("138xxxxxxxxx");
+        req.setPhoneNumber("13888888888");
         req.setProductName("Netty Book For Marshalling");
         req.setSubReqId(i);
         req.setUserName("Wangjunchao");
