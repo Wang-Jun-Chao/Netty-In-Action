@@ -1,5 +1,6 @@
 package com.netty.fileserver;
 
+import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
 import io.netty.handler.codec.http.*;
@@ -120,16 +121,49 @@ public class HttpFileServerHandler extends SimpleChannelInboundHandler<FullHttpR
         }
     }
 
-    private void sendRedirect(ChannelHandlerContext ctx, String s) {
-
+    private void sendRedirect(ChannelHandlerContext ctx, String newUri) {
+        FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.FOUND);
+        response.headers().set(HttpHeaderNames.LOCATION, newUri);
+        ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);
     }
 
     private void sendListing(ChannelHandlerContext ctx, File dir) {
-
+        FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK);
+        response.headers().set(HttpHeaderNames.CONTENT_TYPE, "text/html; charset=UTF-8");
+        StringBuilder buf = new StringBuilder();
+        String dirPath = dir.getPath();
+        buf.append("<!DOCTYPE html>\r\n");
+        buf.append("<html><head><title>");
+        buf.append(dirPath);
+        buf.append(" 目录：");
+        buf.append("</title></head><body>\r\n");
+        buf.append("<h3>");
+        buf.append(dirPath).append(" 目录：");
+        buf.append("</h3>\r\n");
+        buf.append("<ul>");
+        buf.append("<li>链接：<a href=\"../\">..</a></li>\r\n");
+        for (File f : dir.listFiles()) {
+            if (f.isHidden() || !f.canRead()) {
+                continue;
+            }
+            String name = f.getName();
+            if (!ALLOWED_FILE_NAME.matcher(name).matches()) {
+                continue;
+            }
+            buf.append("<li>链接：<a href=\"");
+            buf.append(name);
+            buf.append("\">");
+            buf.append(name);
+            buf.append("</a></li>\r\n");
+        }
+        buf.append("</ul></body></html>\r\n");
+        ByteBuf buffer = Unpooled.copiedBuffer(buf, CharsetUtil.UTF_8);
+        response.content().writeBytes(buffer);
+        buffer.release();
+        ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);
 
     }
 
-    // TODO
     private String sanitizeUri(String uri) {
         try {
             uri = URLDecoder.decode(uri, "UTF-8");
