@@ -74,6 +74,7 @@ public class HttpFileServerHandler extends SimpleChannelInboundHandler<FullHttpR
         try {
             randomAccessFile = new RandomAccessFile(file, "r");
         } catch (FileNotFoundException e) {
+            e.printStackTrace();
             sendError(ctx, HttpResponseStatus.NOT_FOUND);
             return;
         }
@@ -84,7 +85,7 @@ public class HttpFileServerHandler extends SimpleChannelInboundHandler<FullHttpR
         setContentTypeHeader(response, file);
 
         // 是否保活
-        if (HttpHeaderUtil.isKeepAlive(request)) {
+        if (!HttpHeaderUtil.isKeepAlive(request)) {
             response.headers().set(HttpHeaderNames.CONNECTION, HttpHeaderValues.KEEP_ALIVE);
         }
         ctx.write(response);
@@ -127,7 +128,7 @@ public class HttpFileServerHandler extends SimpleChannelInboundHandler<FullHttpR
         ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);
     }
 
-    private void sendListing(ChannelHandlerContext ctx, File dir) {
+    private static void sendListing(ChannelHandlerContext ctx, File dir) {
         FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK);
         response.headers().set(HttpHeaderNames.CONTENT_TYPE, "text/html; charset=UTF-8");
         StringBuilder buf = new StringBuilder();
@@ -203,6 +204,6 @@ public class HttpFileServerHandler extends SimpleChannelInboundHandler<FullHttpR
 
     private static void setContentTypeHeader(HttpResponse response, File file) {
         MimetypesFileTypeMap mimetypesFileTypeMap = new MimetypesFileTypeMap();
-        response.headers().set(HttpHeaderNames.CONTENT_TYPE, mimetypesFileTypeMap.getContentType(file.getParent()));
+        response.headers().set(HttpHeaderNames.CONTENT_TYPE, mimetypesFileTypeMap.getContentType(file.getPath()));
     }
 }
