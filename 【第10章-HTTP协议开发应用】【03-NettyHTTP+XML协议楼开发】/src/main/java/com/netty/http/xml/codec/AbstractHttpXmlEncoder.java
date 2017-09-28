@@ -14,7 +14,7 @@ import java.nio.charset.Charset;
 
 public abstract class AbstractHttpXmlEncoder<T> extends MessageToMessageEncoder<T> {
     private final static String CHARSET_NAME = "UTF-8";
-    final static Charset UTF_8 = Charset.forName(CHARSET_NAME);
+    private final static Charset UTF_8 = Charset.forName(CHARSET_NAME);
     private XmlMapper xmlMapper = new XmlMapper();
 
     protected ByteBuf encode0(ChannelHandlerContext ctx, Object body) throws Exception {

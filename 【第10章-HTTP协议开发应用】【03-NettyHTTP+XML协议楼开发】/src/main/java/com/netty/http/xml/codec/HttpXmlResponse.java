@@ -29,8 +29,7 @@ public class HttpXmlResponse {
 
     @Override
     public String toString() {
-        return "HttpXmlResponse [httpResponse=" + httpResponse + ", result="
-                + result + "]";
+        return "HttpXmlResponse [httpResponse=" + httpResponse + ", result=" + result + "]";
     }
 
 }

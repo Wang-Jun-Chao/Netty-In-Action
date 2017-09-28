@@ -11,8 +11,8 @@ public class HttpXmlResponseDecoder extends AbstractHttpXmlDecoder<DefaultFullHt
         this(clazz, false);
     }
 
-    public HttpXmlResponseDecoder(Class<?> clazz, boolean isPrintlog) {
-        super(clazz, isPrintlog);
+    public HttpXmlResponseDecoder(Class<?> clazz, boolean isPrintLog) {
+        super(clazz, isPrintLog);
     }
 
     @Override
