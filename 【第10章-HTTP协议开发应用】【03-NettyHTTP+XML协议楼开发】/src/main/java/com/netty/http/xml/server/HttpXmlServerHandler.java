@@ -15,19 +15,16 @@
  */
 package com.netty.http.xml.server;
 
-import com.phei.netty.protocol.http.xml.codec.HttpXmlRequest;
-import com.phei.netty.protocol.http.xml.codec.HttpXmlResponse;
-import com.phei.netty.protocol.http.xml.pojo.Address;
-import com.phei.netty.protocol.http.xml.pojo.Order;
+import com.netty.http.xml.codec.HttpXmlRequest;
+import com.netty.http.xml.codec.HttpXmlResponse;
+import com.netty.http.xml.pojo.Address;
+import com.netty.http.xml.pojo.Order;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.handler.codec.http.DefaultFullHttpResponse;
-import io.netty.handler.codec.http.FullHttpResponse;
-import io.netty.handler.codec.http.HttpRequest;
-import io.netty.handler.codec.http.HttpResponseStatus;
+import io.netty.handler.codec.http.*;
 import io.netty.util.CharsetUtil;
 import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.GenericFutureListener;
@@ -35,8 +32,7 @@ import io.netty.util.concurrent.GenericFutureListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import static io.netty.handler.codec.http.HttpHeaders.Names.CONTENT_TYPE;
-import static io.netty.handler.codec.http.HttpHeaders.isKeepAlive;
+import static io.netty.handler.codec.http.HttpHeaderNames.CONTENT_TYPE;
 import static io.netty.handler.codec.http.HttpResponseStatus.INTERNAL_SERVER_ERROR;
 import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
 
@@ -45,8 +41,7 @@ import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
  * @version 1.0
  * @date 2014年2月14日
  */
-public class HttpXmlServerHandler extends
-        SimpleChannelInboundHandler<HttpXmlRequest> {
+public class HttpXmlServerHandler extends SimpleChannelInboundHandler<HttpXmlRequest> {
 
     private static void sendError(ChannelHandlerContext ctx,
             HttpResponseStatus status) {
@@ -64,9 +59,8 @@ public class HttpXmlServerHandler extends
         Order order = (Order) xmlRequest.getBody();
         System.out.println("Http server receive request : " + order);
         dobusiness(order);
-        ChannelFuture future = ctx.writeAndFlush(new HttpXmlResponse(null,
-                order));
-        if (!isKeepAlive(request)) {
+        ChannelFuture future = ctx.writeAndFlush(new HttpXmlResponse(null, order));
+        if (!HttpHeaderUtil.isKeepAlive(request)) {
             future.addListener(new GenericFutureListener<Future<? super Void>>() {
                 public void operationComplete(Future future) throws Exception {
                     ctx.close();
