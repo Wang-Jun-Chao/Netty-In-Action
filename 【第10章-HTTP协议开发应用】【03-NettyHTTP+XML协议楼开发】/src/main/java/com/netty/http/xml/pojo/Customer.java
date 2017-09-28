@@ -8,19 +8,10 @@ import java.util.List;
 public class Customer {
     private long customerNumber;
 
-    /**
-     * Personal name.
-     */
     private String firstName;
 
-    /**
-     * Family name.
-     */
     private String lastName;
 
-    /**
-     * Middle name(s), if any.
-     */
     private List<String> middleNames;
 
     public long getCustomerNumber() {
@@ -55,11 +46,6 @@ public class Customer {
         this.middleNames = middleNames;
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see java.lang.Object#toString()
-     */
     @Override
     public String toString() {
         return "Customer [customerNumber=" + customerNumber + ", firstName="

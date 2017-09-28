@@ -19,23 +19,19 @@ public class TestOrder {
     private XmlMapper xmlMapper = new XmlMapper();
 
     private String encode2Xml(Order order) throws JsonProcessingException {
-       String xmlStr = xmlMapper.writeValueAsString(order);
-        System.out.println(xmlStr);
-        return xmlStr;
+        return xmlMapper.writeValueAsString(order);
     }
 
     private Order decode2Order(String xmlStr) throws IOException {
-        Order order = xmlMapper.readValue(xmlStr, Order.class);
-        System.out.println(order);
-        return order;
+        return xmlMapper.readValue(xmlStr, Order.class);
     }
 
     public static void main(String[] args) throws IOException {
         TestOrder test = new TestOrder();
         Order order = OrderFactory.create(123);
         String body = test.encode2Xml(order);
+        System.out.println(body);
         Order order2 = test.decode2Order(body);
         System.out.println(order2);
-
     }
 }

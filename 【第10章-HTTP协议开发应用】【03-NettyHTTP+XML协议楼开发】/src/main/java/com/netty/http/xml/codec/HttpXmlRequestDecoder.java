@@ -30,11 +30,6 @@ import static io.netty.handler.codec.http.HttpHeaderNames.CONTENT_TYPE;
 import static io.netty.handler.codec.http.HttpResponseStatus.BAD_REQUEST;
 import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
 
-/**
- * @author Lilinfeng
- * @version 1.0
- * @date 2014年3月1日
- */
 public class HttpXmlRequestDecoder extends
         AbstractHttpXmlDecoder<FullHttpRequest> {
 
@@ -46,11 +41,11 @@ public class HttpXmlRequestDecoder extends
         super(clazz, isPrint);
     }
 
-    private static void sendError(ChannelHandlerContext ctx,
-            HttpResponseStatus status) {
-        FullHttpResponse response = new DefaultFullHttpResponse(HTTP_1_1,
-                status, Unpooled.copiedBuffer("Failure: " + status.toString()
-                + "\r\n", CharsetUtil.UTF_8));
+    private static void sendError(ChannelHandlerContext ctx, HttpResponseStatus status) {
+        FullHttpResponse response = new DefaultFullHttpResponse(
+                HTTP_1_1,
+                status,
+                Unpooled.copiedBuffer("Failure: " + status.toString() + "\r\n", CharsetUtil.UTF_8));
         response.headers().set(CONTENT_TYPE, "text/plain; charset=UTF-8");
         ctx.writeAndFlush(response).addListener(ChannelFutureListener.CLOSE);
     }

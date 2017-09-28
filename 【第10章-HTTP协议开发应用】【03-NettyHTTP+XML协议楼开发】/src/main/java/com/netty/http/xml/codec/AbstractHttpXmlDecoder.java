@@ -12,9 +12,9 @@ public abstract class AbstractHttpXmlDecoder<T> extends MessageToMessageDecoder<
 
     private final static String CHARSET_NAME = "UTF-8";
     private final static Charset UTF_8 = Charset.forName(CHARSET_NAME);
-    private StringReader reader;
     private boolean isPrint;
     private Class<?> clazz;
+    // XML解析器
     private XmlMapper xmlMapper = new XmlMapper();
 
     protected AbstractHttpXmlDecoder(Class<?> clazz) {
@@ -26,7 +26,7 @@ public abstract class AbstractHttpXmlDecoder<T> extends MessageToMessageDecoder<
         this.isPrint = isPrint;
     }
 
-    protected Object decode0(ChannelHandlerContext arg0, ByteBuf body) throws Exception {
+    protected Object decode0(ChannelHandlerContext ctx, ByteBuf body) throws Exception {
 
         String content = body.toString(UTF_8);
         if (isPrint) {
