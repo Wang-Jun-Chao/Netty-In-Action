@@ -9,13 +9,11 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
 
-public class HttpXmlClientHandle extends
-        SimpleChannelInboundHandler<HttpXmlResponse> {
+public class HttpXmlClientHandle extends SimpleChannelInboundHandler<HttpXmlResponse> {
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) {
-        HttpXmlRequest request = new HttpXmlRequest(null,
-                OrderFactory.create(123));
+        HttpXmlRequest request = new HttpXmlRequest(null, OrderFactory.create(123));
         ctx.writeAndFlush(request);
     }
 
