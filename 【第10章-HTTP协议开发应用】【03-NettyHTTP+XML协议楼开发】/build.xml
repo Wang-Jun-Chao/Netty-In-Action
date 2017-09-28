@@ -15,10 +15,7 @@
         <mkdir dir="${build}"/>
     </target>
 
-    <target name="buildgen">
-        <echo message="running BindGen tool"/>
-        <java classpathref=""
-    </target>
+
 
     <target name="compile" depends="init"
             description="compile the source">
