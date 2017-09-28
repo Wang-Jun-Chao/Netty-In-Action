@@ -30,8 +30,7 @@ import static io.netty.handler.codec.http.HttpHeaderNames.CONTENT_TYPE;
 import static io.netty.handler.codec.http.HttpResponseStatus.BAD_REQUEST;
 import static io.netty.handler.codec.http.HttpVersion.HTTP_1_1;
 
-public class HttpXmlRequestDecoder extends
-        AbstractHttpXmlDecoder<FullHttpRequest> {
+public class HttpXmlRequestDecoder extends AbstractHttpXmlDecoder<FullHttpRequest> {
 
     public HttpXmlRequestDecoder(Class<?> clazz) {
         this(clazz, false);
