@@ -14,6 +14,8 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpRequestEncoder;
 import io.netty.handler.codec.http.HttpResponseDecoder;
+import io.netty.handler.logging.LogLevel;
+import io.netty.handler.logging.LoggingHandler;
 
 import java.net.InetSocketAddress;
 public class HttpXmlClient {
@@ -41,16 +43,17 @@ public class HttpXmlClient {
             Bootstrap b = new Bootstrap();
             b.group(group).channel(NioSocketChannel.class)
                     .option(ChannelOption.TCP_NODELAY, true)
+                    .handler(new LoggingHandler(LogLevel.INFO))
                     .handler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         public void initChannel(SocketChannel ch) throws Exception {
-                            ch.pipeline().addLast("http-decoder", new HttpResponseDecoder());
-                            ch.pipeline().addLast("http-aggregator", new HttpObjectAggregator(65536));
+                            ch.pipeline().addLast("HttpResponseDecoder", new HttpResponseDecoder());
+                            ch.pipeline().addLast("HttpObjectAggregator", new HttpObjectAggregator(65536));
                             // XML解码器
-                            ch.pipeline().addLast("xml-decoder", new HttpXmlResponseDecoder(Order.class, true));
-                            ch.pipeline().addLast("http-encoder", new HttpRequestEncoder());
-                            ch.pipeline().addLast("xml-encoder", new HttpXmlRequestEncoder());
-                            ch.pipeline().addLast("xmlClientHandler", new HttpXmlClientHandle());
+                            ch.pipeline().addLast("HttpXmlResponseDecoder", new HttpXmlResponseDecoder(Order.class, true));
+                            ch.pipeline().addLast("HttpRequestEncoder", new HttpRequestEncoder());
+                            ch.pipeline().addLast("HttpXmlRequestEncoder", new HttpXmlRequestEncoder());
+                            ch.pipeline().addLast("HttpXmlClientHandle", new HttpXmlClientHandle());
                         }
                     });
 

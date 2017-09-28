@@ -13,6 +13,8 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpRequestDecoder;
 import io.netty.handler.codec.http.HttpResponseEncoder;
+import io.netty.handler.logging.LogLevel;
+import io.netty.handler.logging.LoggingHandler;
 
 import java.net.InetSocketAddress;
 
@@ -36,16 +38,17 @@ public class HttpXmlServer {
             ServerBootstrap b = new ServerBootstrap();
             b.group(bossGroup, workerGroup)
                     .channel(NioServerSocketChannel.class)
+                    .handler(new LoggingHandler(LogLevel.INFO))
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel ch)
                                 throws Exception {
-                            ch.pipeline().addLast("http-decoder", new HttpRequestDecoder());
-                            ch.pipeline().addLast("http-aggregator", new HttpObjectAggregator(65536));
-                            ch.pipeline().addLast("xml-decoder", new HttpXmlRequestDecoder(Order.class, true));
-                            ch.pipeline().addLast("http-encoder", new HttpResponseEncoder());
-                            ch.pipeline().addLast("xml-encoder", new HttpXmlResponseEncoder());
-                            ch.pipeline().addLast("xmlServerHandler", new HttpXmlServerHandler());
+                            ch.pipeline().addLast("HttpRequestDecoder", new HttpRequestDecoder());
+                            ch.pipeline().addLast("HttpObjectAggregator", new HttpObjectAggregator(65536));
+                            ch.pipeline().addLast("HttpXmlRequestDecoder", new HttpXmlRequestDecoder(Order.class, true));
+                            ch.pipeline().addLast("HttpResponseEncoder", new HttpResponseEncoder());
+                            ch.pipeline().addLast("HttpXmlResponseEncoder", new HttpXmlResponseEncoder());
+                            ch.pipeline().addLast("HttpXmlServerHandler", new HttpXmlServerHandler());
                         }
                     });
             ChannelFuture future = b.bind(new InetSocketAddress(port)).sync();
