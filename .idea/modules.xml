@@ -20,6 +20,7 @@
       <module fileurl="file://$PROJECT_DIR$/【第09章-JBossMarshalling编解码】【01-JBossMarshalling编解码】/【第09章-JBossMarshalling编解码】【01-JBossMarshalling编解码】.iml" filepath="$PROJECT_DIR$/【第09章-JBossMarshalling编解码】【01-JBossMarshalling编解码】/【第09章-JBossMarshalling编解码】【01-JBossMarshalling编解码】.iml" />
       <module fileurl="file://$PROJECT_DIR$/【第10章-HTTP协议开发应用】【02-NettyHTTP服务端入门开发】/【第10章-HTTP协议开发应用】【02-NettyHTTP服务端入门开发】.iml" filepath="$PROJECT_DIR$/【第10章-HTTP协议开发应用】【02-NettyHTTP服务端入门开发】/【第10章-HTTP协议开发应用】【02-NettyHTTP服务端入门开发】.iml" />
       <module fileurl="file://$PROJECT_DIR$/【第10章-HTTP协议开发应用】【03-NettyHTTP+XML协议楼开发】/【第10章-HTTP协议开发应用】【03-NettyHTTP+XML协议楼开发】.iml" filepath="$PROJECT_DIR$/【第10章-HTTP协议开发应用】【03-NettyHTTP+XML协议楼开发】/【第10章-HTTP协议开发应用】【03-NettyHTTP+XML协议楼开发】.iml" />
+      <module fileurl="file://$PROJECT_DIR$/【第11章-WebSocket协议开发】【02-NettyWebSocket协议开发】/【第11章-WebSocket协议开发】【02-NettyWebSocket协议开发】.iml" filepath="$PROJECT_DIR$/【第11章-WebSocket协议开发】【02-NettyWebSocket协议开发】/【第11章-WebSocket协议开发】【02-NettyWebSocket协议开发】.iml" />
     </modules>
   </component>
 </project>
