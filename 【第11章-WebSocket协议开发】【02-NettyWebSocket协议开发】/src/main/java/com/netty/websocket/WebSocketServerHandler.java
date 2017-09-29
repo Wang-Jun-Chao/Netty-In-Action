@@ -10,6 +10,9 @@ import io.netty.handler.codec.http.*;
 import io.netty.handler.codec.http.websocketx.*;
 import io.netty.util.CharsetUtil;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -90,8 +93,11 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> 
         if (logger.isLoggable(Level.FINE)) {
             logger.fine(String.format("%s received %s", ctx.channel(), request));
         }
-        ctx.channel().write(new TextWebSocketFrame(
-                request + " , 欢迎使用Netty WebSocket服务，现在时刻：" + new java.util.Date().toString()));
+        ctx.channel().write(new TextWebSocketFrame(request
+                + " , 欢迎使用Netty WebSocket服务，UUID: "
+                + UUID.randomUUID()
+                + "，现在时刻："
+                + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date())));
     }
 
     private void sendHttpResponse(ChannelHandlerContext ctx, FullHttpRequest req, DefaultFullHttpResponse res) {
