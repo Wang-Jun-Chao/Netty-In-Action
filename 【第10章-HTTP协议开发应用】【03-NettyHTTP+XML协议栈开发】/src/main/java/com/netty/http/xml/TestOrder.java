@@ -6,7 +6,6 @@ import com.netty.http.xml.pojo.Order;
 import com.netty.http.xml.pojo.OrderFactory;
 
 import java.io.IOException;
-import java.io.StringReader;
 
 /**
  * Author: 王俊超

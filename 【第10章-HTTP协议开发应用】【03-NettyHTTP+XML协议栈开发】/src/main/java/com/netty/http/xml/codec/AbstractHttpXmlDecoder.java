@@ -5,7 +5,6 @@ import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageDecoder;
 
-import java.io.StringReader;
 import java.nio.charset.Charset;
 
 public abstract class AbstractHttpXmlDecoder<T> extends MessageToMessageDecoder<T> {

@@ -4,12 +4,9 @@ package com.netty.http.xml.codec;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelPipeline;
 import io.netty.handler.codec.MessageToMessageEncoder;
 
-import java.io.StringWriter;
 import java.nio.charset.Charset;
 
 public abstract class AbstractHttpXmlEncoder<T> extends MessageToMessageEncoder<T> {

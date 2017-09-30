@@ -24,8 +24,9 @@
         <module name="【第08章-GoogleProtobuf编解码】【02-Netty的Protobuf服务端开发】" />
         <module name="【第09章-JBossMarshalling编解码】【01-JBossMarshalling编解码】" />
         <module name="【第10章-HTTP协议开发应用】【02-NettyHTTP服务端入门开发】" />
-        <module name="【第10章-HTTP协议开发应用】【03-NettyHTTP+XML协议楼开发】" />
+        <module name="【第10章-HTTP协议开发应用】【03-NettyHTTP+XML协议栈开发】" />
         <module name="【第11章-WebSocket协议开发】【02-NettyWebSocket协议开发】" />
+        <module name="【第12章-私有协议栈开发】【03-Netty协议栈开发】" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -47,8 +48,9 @@
       <module name="【第08章-GoogleProtobuf编解码】【02-Netty的Protobuf服务端开发】" target="1.8" />
       <module name="【第09章-JBossMarshalling编解码】【01-JBossMarshalling编解码】" target="1.8" />
       <module name="【第10章-HTTP协议开发应用】【02-NettyHTTP服务端入门开发】" target="1.8" />
-      <module name="【第10章-HTTP协议开发应用】【03-NettyHTTP+XML协议楼开发】" target="1.8" />
+      <module name="【第10章-HTTP协议开发应用】【03-NettyHTTP+XML协议栈开发】" target="1.8" />
       <module name="【第11章-WebSocket协议开发】【02-NettyWebSocket协议开发】" target="1.8" />
+      <module name="【第12章-私有协议栈开发】【03-Netty协议栈开发】" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
