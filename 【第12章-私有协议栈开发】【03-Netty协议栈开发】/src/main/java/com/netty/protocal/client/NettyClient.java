@@ -1,6 +1,8 @@
 package com.netty.protocal.client;
 
 import com.netty.protocal.NettyConstant;
+import com.netty.protocal.codec.NettyMessageDecoder;
+import com.netty.protocal.codec.NettyMessageEncoder;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -14,6 +16,7 @@ import io.netty.handler.timeout.ReadTimeoutHandler;
 import java.net.InetSocketAddress;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Author: 王俊超
@@ -31,7 +34,7 @@ public class NettyClient {
      * @throws Exception
      */
     public static void main(String[] args) throws Exception {
-        new NettyClient().connect(NettyConstant.PORT, NettyConstant.REMOTEIP);
+        new NettyClient().connect(NettyConstant.PORT, NettyConstant.REMOTE_IP);
     }
 
     public void connect(int port, String host) throws Exception {
@@ -55,7 +58,7 @@ public class NettyClient {
             // 发起异步连接操作
             ChannelFuture future = b.connect(
                     new InetSocketAddress(host, port),
-                    new InetSocketAddress(NettyConstant.LOCALIP, NettyConstant.LOCAL_PORT)).sync();
+                    new InetSocketAddress(NettyConstant.LOCAL_IP, NettyConstant.LOCAL_PORT)).sync();
             future.channel().closeFuture().sync();
         } finally {
             // 所有资源释放完成之后，清空资源，再次发起重连操作
@@ -65,7 +68,7 @@ public class NettyClient {
                     try {
                         TimeUnit.SECONDS.sleep(1);
                         try {
-                            connect(NettyConstant.PORT, NettyConstant.REMOTEIP);// 发起重连操作
+                            connect(NettyConstant.PORT, NettyConstant.REMOTE_IP);// 发起重连操作
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
