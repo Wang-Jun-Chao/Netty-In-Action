@@ -48,6 +48,7 @@ public class NettyClient {
                     .handler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         public void initChannel(SocketChannel ch) throws Exception {
+                            // -8表示lengthAdjustment，让解码器从0开始截取字节，并且包含消息头
                             ch.pipeline().addLast(new NettyMessageDecoder(1024 * 1024, 4, 4));
                             ch.pipeline().addLast("MessageEncoder", new NettyMessageEncoder());
                             ch.pipeline().addLast("readTimeoutHandler", new ReadTimeoutHandler(50));
