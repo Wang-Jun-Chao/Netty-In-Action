@@ -9,20 +9,14 @@ import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Author: 王俊超
- * Date: 2017-10-07 07:41
- * Blog: http://blog.csdn.net/derrantcm
- * Github: https://github.com/wang-jun-chao
- * All Rights Reserved !!!
- */
 public class NettyMessageDecoder extends LengthFieldBasedFrameDecoder {
+
     private NettyMarshallingDecoder marshallingDecoder;
 
     public NettyMessageDecoder(int maxFrameLength, int lengthFieldOffset,
             int lengthFieldLength, int lengthAdjustment, int initialBytesToStrip) {
         super(maxFrameLength, lengthFieldOffset, lengthFieldLength, lengthAdjustment, initialBytesToStrip);
-        marshallingDecoder = MarshallingCodecFactory.buildMarshallingDecoder();
+        marshallingDecoder = MarshallingCodeCFactory.buildMarshallingDecoder();
     }
 
 
@@ -36,7 +30,7 @@ public class NettyMessageDecoder extends LengthFieldBasedFrameDecoder {
         Header header = new Header();
         header.setCrcCode(frame.readInt());
         header.setLength(frame.readInt());
-        header.setSessionId(frame.readLong());
+        header.setSessionID(frame.readLong());
         header.setType(frame.readByte());
         header.setPriority(frame.readByte());
 
@@ -53,6 +47,8 @@ public class NettyMessageDecoder extends LengthFieldBasedFrameDecoder {
                 key = new String(keyArray, "UTF-8");
                 attach.put(key, marshallingDecoder.decode(ctx, frame));
             }
+            key = null;
+            keyArray = null;
             header.setAttachment(attach);
         }
         if (frame.readableBytes() > 0) {

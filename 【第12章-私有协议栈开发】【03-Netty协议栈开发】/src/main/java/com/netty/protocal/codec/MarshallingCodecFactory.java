@@ -8,15 +8,7 @@ import org.jboss.marshalling.MarshallerFactory;
 import org.jboss.marshalling.Marshalling;
 import org.jboss.marshalling.MarshallingConfiguration;
 
-/**
- * Author: 王俊超
- * Date: 2017-10-07 07:34
- * Blog: http://blog.csdn.net/derrantcm
- * Github: https://github.com/wang-jun-chao
- * All Rights Reserved !!!
- */
-public class MarshallingCodecFactory {
-
+public class MarshallingCodeCFactory {
     public static NettyMarshallingDecoder buildMarshallingDecoder() {
         MarshallerFactory marshallerFactory = Marshalling.getProvidedMarshallerFactory("serial");
         MarshallingConfiguration configuration = new MarshallingConfiguration();

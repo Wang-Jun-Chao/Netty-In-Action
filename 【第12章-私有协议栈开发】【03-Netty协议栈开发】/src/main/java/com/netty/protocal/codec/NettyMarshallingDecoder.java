@@ -5,13 +5,6 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.marshalling.MarshallingDecoder;
 import io.netty.handler.codec.marshalling.UnmarshallerProvider;
 
-/**
- * Author: 王俊超
- * Date: 2017-10-07 08:05
- * Blog: http://blog.csdn.net/derrantcm
- * Github: https://github.com/wang-jun-chao
- * All Rights Reserved !!!
- */
 public class NettyMarshallingDecoder extends MarshallingDecoder {
 
     public NettyMarshallingDecoder(UnmarshallerProvider provider) {
@@ -25,4 +18,5 @@ public class NettyMarshallingDecoder extends MarshallingDecoder {
     public Object decode(ChannelHandlerContext ctx, ByteBuf in) throws Exception {
         return super.decode(ctx, in);
     }
+
 }

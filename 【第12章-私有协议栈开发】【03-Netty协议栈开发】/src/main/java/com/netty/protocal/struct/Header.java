@@ -3,20 +3,18 @@ package com.netty.protocal.struct;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Author: 王俊超
- * Date: 2017-10-07 07:14
- * Blog: http://blog.csdn.net/derrantcm
- * Github: https://github.com/wang-jun-chao
- * All Rights Reserved !!!
- */
 public class Header {
     private int crcCode = 0xabef0101;
-    private int length;// 消息长度
-    private long sessionId;// 会话ID
-    private byte type;// 消息类型
-    private byte priority;// 消息优先级
-    private Map<String, Object> attachment = new HashMap<String, Object>(); // 附件
+
+    private int length;
+
+    private long sessionID;
+
+    private byte type;
+
+    private byte priority;
+
+    private Map<String, Object> attachment = new HashMap<String, Object>();
 
     public int getCrcCode() {
         return crcCode;
@@ -34,12 +32,12 @@ public class Header {
         this.length = length;
     }
 
-    public long getSessionId() {
-        return sessionId;
+    public long getSessionID() {
+        return sessionID;
     }
 
-    public void setSessionId(long sessionId) {
-        this.sessionId = sessionId;
+    public void setSessionID(long sessionID) {
+        this.sessionID = sessionID;
     }
 
     public byte getType() {
@@ -66,15 +64,8 @@ public class Header {
         this.attachment = attachment;
     }
 
-    @Override
     public String toString() {
-        return "Header{" +
-                "crcCode=" + crcCode +
-                ", length=" + length +
-                ", sessionId=" + sessionId +
-                ", type=" + type +
-                ", priority=" + priority +
-                ", attachment=" + attachment +
-                '}';
+        return "Header [crcCode=" + crcCode + ", length=" + length + ", sessionID=" + sessionID
+                + ", type=" + type + ", priority=" + priority + ", attachment=" + attachment + "]";
     }
 }

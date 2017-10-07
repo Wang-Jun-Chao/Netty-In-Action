@@ -22,6 +22,7 @@
       <module fileurl="file://$PROJECT_DIR$/【第10章-HTTP协议开发应用】【03-NettyHTTP+XML协议栈开发】/【第10章-HTTP协议开发应用】【03-NettyHTTP+XML协议栈开发】.iml" filepath="$PROJECT_DIR$/【第10章-HTTP协议开发应用】【03-NettyHTTP+XML协议栈开发】/【第10章-HTTP协议开发应用】【03-NettyHTTP+XML协议栈开发】.iml" />
       <module fileurl="file://$PROJECT_DIR$/【第11章-WebSocket协议开发】【02-NettyWebSocket协议开发】/【第11章-WebSocket协议开发】【02-NettyWebSocket协议开发】.iml" filepath="$PROJECT_DIR$/【第11章-WebSocket协议开发】【02-NettyWebSocket协议开发】/【第11章-WebSocket协议开发】【02-NettyWebSocket协议开发】.iml" />
       <module fileurl="file://$PROJECT_DIR$/【第12章-私有协议栈开发】【03-Netty协议栈开发】/【第12章-私有协议栈开发】【03-Netty协议栈开发】.iml" filepath="$PROJECT_DIR$/【第12章-私有协议栈开发】【03-Netty协议栈开发】/【第12章-私有协议栈开发】【03-Netty协议栈开发】.iml" />
+      <module fileurl="file://$PROJECT_DIR$/【第12章-私有协议栈开发】【04-Netty协议栈开发-2】/【第12章-私有协议栈开发】【04-Netty协议栈开发-2】.iml" filepath="$PROJECT_DIR$/【第12章-私有协议栈开发】【04-Netty协议栈开发-2】/【第12章-私有协议栈开发】【04-Netty协议栈开发-2】.iml" />
     </modules>
   </component>
 </project>

@@ -24,6 +24,7 @@
         <option value="$PROJECT_DIR$/【第10章-HTTP协议开发应用】【03-NettyHTTP+XML协议栈开发】/pom.xml" />
         <option value="$PROJECT_DIR$/【第11章-WebSocket协议开发】【02-NettyWebSocket协议开发】/pom.xml" />
         <option value="$PROJECT_DIR$/【第12章-私有协议栈开发】【03-Netty协议栈开发】/pom.xml" />
+        <option value="$PROJECT_DIR$/【第12章-私有协议栈开发】【04-Netty协议栈开发-2】/pom.xml" />
       </list>
     </option>
   </component>

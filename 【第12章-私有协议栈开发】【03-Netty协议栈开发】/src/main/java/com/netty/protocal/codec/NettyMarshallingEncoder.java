@@ -5,14 +5,6 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.marshalling.MarshallerProvider;
 import io.netty.handler.codec.marshalling.MarshallingEncoder;
 
-/**
- * Author: 王俊超
- * Date: 2017-10-07 08:05
- * Blog: http://blog.csdn.net/derrantcm
- * Github: https://github.com/wang-jun-chao
- * All Rights Reserved !!!
- */
-
 public class NettyMarshallingEncoder extends MarshallingEncoder {
 
     public NettyMarshallingEncoder(MarshallerProvider provider) {
