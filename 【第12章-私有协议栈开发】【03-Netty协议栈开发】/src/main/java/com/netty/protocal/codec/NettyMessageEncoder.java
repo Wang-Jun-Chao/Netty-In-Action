@@ -43,9 +43,6 @@ public class NettyMessageEncoder extends MessageToMessageEncoder<NettyMessage> {
             value = param.getValue();
             marshallingEncoder.encode(ctx, value, sendBuf);
         }
-        key = null;
-        keyArray = null;
-        value = null;
         if (msg.getBody() != null) {
             marshallingEncoder.encode(ctx, msg.getBody(), sendBuf);
         }

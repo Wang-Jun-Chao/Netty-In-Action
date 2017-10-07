@@ -9,6 +9,8 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.logging.LogLevel;
+import io.netty.handler.logging.LoggingHandler;
 
 public class NettyClient {
     public static void main(String[] args) {
@@ -25,6 +27,7 @@ public class NettyClient {
             Bootstrap b = new Bootstrap();
             b.group(workerGroup)
                     .channel(NioSocketChannel.class)
+                    .handler(new LoggingHandler(LogLevel.INFO))
                     .handler(new ChildChannelHandler());
 
             ChannelFuture f = b.connect(remoteServer, port).sync();

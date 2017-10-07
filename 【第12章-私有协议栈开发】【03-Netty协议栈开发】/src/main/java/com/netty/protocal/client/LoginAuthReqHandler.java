@@ -33,6 +33,7 @@ public class LoginAuthReqHandler extends ChannelHandlerAdapter {
     }
 
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
+        cause.printStackTrace();
         ctx.close();
     }
 }

@@ -14,8 +14,7 @@ public class MarshallingCodeCFactory {
         MarshallingConfiguration configuration = new MarshallingConfiguration();
         configuration.setVersion(5);
         UnmarshallerProvider provider = new DefaultUnmarshallerProvider(marshallerFactory, configuration);
-        NettyMarshallingDecoder decoder = new NettyMarshallingDecoder(provider, 1024);
-        return decoder;
+        return new NettyMarshallingDecoder(provider, 1024);
     }
 
     public static NettyMarshallingEncoder buildMarshallingEncoder() {
@@ -23,7 +22,6 @@ public class MarshallingCodeCFactory {
         MarshallingConfiguration configuration = new MarshallingConfiguration();
         configuration.setVersion(5);
         MarshallerProvider provider = new DefaultMarshallerProvider(marshallerFactory, configuration);
-        NettyMarshallingEncoder encoder = new NettyMarshallingEncoder(provider);
-        return encoder;
+        return new NettyMarshallingEncoder(provider);
     }
 }
