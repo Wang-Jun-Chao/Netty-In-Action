@@ -39,9 +39,6 @@ public final class NettyMessageEncoder extends MessageToByteEncoder<NettyMessage
             value = param.getValue();
             marshallingEncoder.encode(value, sendBuf);
         }
-        key = null;
-        keyArray = null;
-        value = null;
         if (msg.getBody() != null) {
             marshallingEncoder.encode(msg.getBody(), sendBuf);
         } else

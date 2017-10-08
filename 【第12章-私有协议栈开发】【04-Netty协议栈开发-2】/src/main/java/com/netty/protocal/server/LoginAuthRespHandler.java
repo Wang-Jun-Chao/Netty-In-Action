@@ -29,8 +29,7 @@ public class LoginAuthRespHandler extends ChannelHandlerAdapter {
 
         // 如果是握手请求消息，处理，其它消息透传
         if (message.getHeader() != null
-                && message.getHeader().getType() == MessageType.LOGIN_REQ
-                .value()) {
+                && message.getHeader().getType() == MessageType.LOGIN_REQ.value()) {
             String nodeIndex = ctx.channel().remoteAddress().toString();
             NettyMessage loginResp = null;
             // 重复登陆，拒绝
@@ -52,8 +51,7 @@ public class LoginAuthRespHandler extends ChannelHandlerAdapter {
                 if (isOK)
                     nodeCheck.put(nodeIndex, true);
             }
-            System.out.println("The login response is : " + loginResp
-                    + " body [" + loginResp.getBody() + "]");
+            System.out.println("The login response is : " + loginResp + " body [" + loginResp.getBody() + "]");
             ctx.writeAndFlush(loginResp);
         } else {
             ctx.fireChannelRead(msg);
@@ -69,8 +67,7 @@ public class LoginAuthRespHandler extends ChannelHandlerAdapter {
         return message;
     }
 
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause)
-            throws Exception {
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         cause.printStackTrace();
         nodeCheck.remove(ctx.channel().remoteAddress().toString());// 删除缓存
         ctx.close();

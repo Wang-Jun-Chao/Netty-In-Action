@@ -12,6 +12,8 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.logging.LogLevel;
+import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.timeout.ReadTimeoutHandler;
 
 import java.net.InetSocketAddress;
@@ -29,7 +31,7 @@ public class NettyClient {
      * @throws Exception
      */
     public static void main(String[] args) throws Exception {
-        new NettyClient().connect(NettyConstant.PORT, NettyConstant.REMOTEIP);
+        new NettyClient().connect(NettyConstant.PORT, NettyConstant.REMOTE_IP);
     }
 
     public void connect(int port, String host) throws Exception {
@@ -40,12 +42,13 @@ public class NettyClient {
             Bootstrap b = new Bootstrap();
             b.group(group).channel(NioSocketChannel.class)
                     .option(ChannelOption.TCP_NODELAY, true)
+                    .handler(new LoggingHandler(LogLevel.INFO))
                     .handler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         public void initChannel(SocketChannel ch) throws Exception {
                             ch.pipeline().addLast(new NettyMessageDecoder(1024 * 1024, 4, 4));
                             ch.pipeline().addLast("MessageEncoder", new NettyMessageEncoder());
-                            ch.pipeline().addLast("readTimeoutHandler", new ReadTimeoutHandler(50));
+                            ch.pipeline().addLast("ReadTimeoutHandler", new ReadTimeoutHandler(50));
                             ch.pipeline().addLast("LoginAuthHandler", new LoginAuthReqHandler());
                             ch.pipeline().addLast("HeartBeatHandler", new HeartBeatReqHandler());
                         }
@@ -53,8 +56,8 @@ public class NettyClient {
             // 发起异步连接操作
             ChannelFuture future = b.connect(
                     new InetSocketAddress(host, port),
-                    new InetSocketAddress(NettyConstant.LOCALIP,
-                            NettyConstant.LOCAL_PORT)).sync();
+                    new InetSocketAddress(NettyConstant.LOCAL_IP, NettyConstant.LOCAL_PORT)
+            ).sync();
             future.channel().closeFuture().sync();
         } finally {
             // 所有资源释放完成之后，清空资源，再次发起重连操作
@@ -64,7 +67,7 @@ public class NettyClient {
                     try {
                         TimeUnit.SECONDS.sleep(1);
                         try {
-                            connect(NettyConstant.PORT, NettyConstant.REMOTEIP);// 发起重连操作
+                            connect(NettyConstant.PORT, NettyConstant.REMOTE_IP);// 发起重连操作
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

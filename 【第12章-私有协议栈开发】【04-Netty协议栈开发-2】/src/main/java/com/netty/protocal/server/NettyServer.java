@@ -37,15 +37,14 @@ public class NettyServer {
                             throws IOException {
                         ch.pipeline().addLast(new NettyMessageDecoder(1024 * 1024, 4, 4));
                         ch.pipeline().addLast(new NettyMessageEncoder());
-                        ch.pipeline().addLast("readTimeoutHandler", new ReadTimeoutHandler(50));
+                        ch.pipeline().addLast("ReadTimeoutHandler", new ReadTimeoutHandler(50));
                         ch.pipeline().addLast(new LoginAuthRespHandler());
                         ch.pipeline().addLast("HeartBeatHandler", new HeartBeatRespHandler());
                     }
                 });
 
         // 绑定端口，同步等待成功
-        b.bind(NettyConstant.REMOTEIP, NettyConstant.PORT).sync();
-        System.out.println("Netty server start ok : "
-                + (NettyConstant.REMOTEIP + " : " + NettyConstant.PORT));
+        b.bind(NettyConstant.REMOTE_IP, NettyConstant.PORT).sync();
+        System.out.println("Netty server start ok : " + (NettyConstant.REMOTE_IP + " : " + NettyConstant.PORT));
     }
 }
