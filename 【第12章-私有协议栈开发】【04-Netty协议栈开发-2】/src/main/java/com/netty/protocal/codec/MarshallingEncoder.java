@@ -19,12 +19,17 @@ public class MarshallingEncoder {
 
     protected void encode(Object msg, ByteBuf out) throws Exception {
         try {
+            // 记录写的位置，并且写入4字节长度的内容，用于最后写入msg编码后的长度
             int lengthPos = out.writerIndex();
             out.writeBytes(LENGTH_PLACEHOLDER);
+
+            // 写入对象
             ChannelBufferByteOutput output = new ChannelBufferByteOutput(out);
             marshaller.start(output);
             marshaller.writeObject(msg);
             marshaller.finish();
+
+            // 记录msg二进制化后的长度
             out.setInt(lengthPos, out.writerIndex() - lengthPos - 4);
         } finally {
             marshaller.close();
