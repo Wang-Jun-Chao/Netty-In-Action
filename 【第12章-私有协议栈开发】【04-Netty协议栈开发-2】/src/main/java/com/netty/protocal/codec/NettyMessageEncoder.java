@@ -28,9 +28,9 @@ public final class NettyMessageEncoder extends MessageToByteEncoder<NettyMessage
         sendBuf.writeByte((msg.getHeader().getType()));
         sendBuf.writeByte((msg.getHeader().getPriority()));
         sendBuf.writeInt((msg.getHeader().getAttachment().size()));
-        String key = null;
-        byte[] keyArray = null;
-        Object value = null;
+        String key;
+        byte[] keyArray;
+        Object value;
         for (Map.Entry<String, Object> param : msg.getHeader().getAttachment().entrySet()) {
             key = param.getKey();
             keyArray = key.getBytes("UTF-8");
@@ -39,10 +39,13 @@ public final class NettyMessageEncoder extends MessageToByteEncoder<NettyMessage
             value = param.getValue();
             marshallingEncoder.encode(value, sendBuf);
         }
+
         if (msg.getBody() != null) {
             marshallingEncoder.encode(msg.getBody(), sendBuf);
-        } else
+        } else {
             sendBuf.writeInt(0);
+        }
+
         sendBuf.setInt(4, sendBuf.readableBytes() - 8);
     }
 }
