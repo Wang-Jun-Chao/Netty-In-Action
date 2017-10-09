@@ -27,15 +27,18 @@ public final class NettyMessageEncoder extends MessageToByteEncoder<NettyMessage
         sendBuf.writeLong((msg.getHeader().getSessionID()));
         sendBuf.writeByte((msg.getHeader().getType()));
         sendBuf.writeByte((msg.getHeader().getPriority()));
-        sendBuf.writeInt((msg.getHeader().getAttachment().size()));
+        sendBuf.writeInt((msg.getHeader().getAttachment().size()));  // 设置附件个数
         String key;
         byte[] keyArray;
         Object value;
         for (Map.Entry<String, Object> param : msg.getHeader().getAttachment().entrySet()) {
+            // 获取key，并且将key转成byte数组，将byte数组的长度和值写入到ByteBuf
             key = param.getKey();
             keyArray = key.getBytes("UTF-8");
             sendBuf.writeInt(keyArray.length);
             sendBuf.writeBytes(keyArray);
+
+            // 获取value，并且将value转成byte数组，将byte数组的长度和值写入到ByteBuf
             value = param.getValue();
             marshallingEncoder.encode(value, sendBuf);
         }
